@@ -5,4 +5,70 @@ html, body {
 
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.table {
+	display: table;
+	.row {
+		display: table-row;
+		.cell {
+			display: table-cell;
+		}
+	}
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#main {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.app {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	.main-container {
+		position: relative;
+		height: 100%;
+		padding-left: 240px;
+		>.left-bar {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 240px;
+			height: 100%;
+			overflow: hidden;
+			-webkit-overflow-scrolling: touch;
+			
+			>div {
+				position: absolute;
+				width: 100%;
+
+				&.top {
+					top: 0;
+					height: 50px;
+				}
+				&.bottom {
+					bottom: 0;
+					height: 50px;
+				}
+				&.mid {
+					top: 50px;
+					bottom: 50px;
+					overflow-x: hidden;
+					overflow-y: auto;
+					-webkit-overflow-scrolling: touch;
+				}
+			}
+		}
+		>.content {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
