@@ -1,0 +1,2 @@
+# ignore bundle.js generated using browserify
+bundle.js
