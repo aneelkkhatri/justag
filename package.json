@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babelify": "babel --presets react,es2015 --plugins transform-object-rest-spread --watch app/src --out-dir app/build",
     "lessify": "lessc --clean-css app/less/index.less app/css/index.css",
-    "browserify": "browserify app/build/main.js -o app/js/build.js"
+    "browserify": "browserify app/build/main.js -o app/js/bundle.js"
   },
   "repository": {
     "type": "git",
