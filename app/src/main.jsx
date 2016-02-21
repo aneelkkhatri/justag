@@ -7,6 +7,9 @@ import App from './components/App'
 
 let store = createStore(todoApp)
 
+let rootElement = document.getElementById('root');
+rootElement.setAttribute('class','');
+
 render(
   <Provider store={store}>
     <App />
