@@ -1,4 +1,5 @@
 var React = require('react');
+var TagsWrapper = require('./TagsWrapper');
 
 var TopPart = React.createClass({
 	render: function () {
@@ -6,29 +7,14 @@ var TopPart = React.createClass({
 	}
 });
 var MidPart = React.createClass({
-	_scroll: null,
-	componentDidMount: function () {
-		this._scroll = new IScroll(this.refs.wrapper, {
-			mouseWheel: true,
-			scrollbars: "custom"
-		});
-	},
-	componentWillUnmount: function () {
-		this._scroll.destroy();
-	},
 	render: function () {
 		var tags = [];
 		for (var i = 0; i < 50; i++) {
-			var item = <li key={i} className="tag-item">
-				<div>#&nbsp;&nbsp;&nbsp;ITEM {i+1}</div>
-			</li>;
-			tags.push(item);
+			tags.push('justag'+i);
 		}
 
-		return <div className="mid dark" ref="wrapper">
-			<ul className="tags-list">
-				{tags}
-			</ul>
+		return <div className="mid dark">
+			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollbars: "custom"}} />
 		</div>;
 	}
 });

@@ -1,28 +1,33 @@
 var React = require('react');
+var assign = require('object-assign');
 
 var TagsWrapper = React.createClass({
 	_scroll: null,
 	componentDidMount: function () {
-		this._scroll = new IScroll(this.refs.wrapper, {
-			mouseWheel: true,
-			scrollbars: "custom"
-		});
+		var options = this.props.dataIScrollOptions || {};
+		this._scroll = new IScroll(this.refs.wrapper, 
+			assign({
+				mouseWheel: true
+			}, options)
+		);
 	},
 	componentWillUnmount: function () {
 		this._scroll.destroy();
 	},
 	render: function () {
-		var tags = [];
-		for (var i = 0; i < 50; i++) {
-			var item = <li key={i} className="tag-item">
-				<div>#&nbsp;&nbsp;&nbsp;ITEM {i+1}</div>
+		var tags = this.props.dataTags || [];
+		var tagElements = [];
+		for (var i = 0, len = tags.length; i < len; i++) {
+			var tag = tags[i]
+			var item = <li key={tag} className="tag-item">
+				<div>{tag}</div>
 			</li>;
-			tags.push(item);
+			tagElements.push(item);
 		}
 
 		return <div className="tags-wrapper" ref="wrapper">
 			<ul className="tags-list">
-				{tags}
+				{tagElements}
 			</ul>
 		</div>;
 	}
