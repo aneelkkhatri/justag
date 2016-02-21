@@ -1,5 +1,5 @@
-var React = require('react');
-var TagsWrapper = require('./TagsWrapper');
+import React from 'react'
+import TagsWrapper from './TagsWrapper'
 
 var TopPart = React.createClass({
 	render: function () {
@@ -35,4 +35,4 @@ var LeftSideBar = React.createClass({
 	}
 });
 
-module.exports = LeftSideBar;
+export default LeftSideBar;

@@ -1,15 +1,17 @@
-var React = require('react');
-var assign = require('object-assign');
+import React, { PropTypes } from 'react'
 
-var TagsWrapper = React.createClass({
+const TagsWrapper = React.createClass({
 	_scroll: null,
 	componentDidMount: function () {
 		var options = this.props.dataIScrollOptions || {};
 		this._scroll = new IScroll(this.refs.wrapper, 
-			assign({
+			Object.assign({
 				mouseWheel: true
 			}, options)
 		);
+	},
+	componentDidUpdate: function () {
+		this._scroll.refresh();
 	},
 	componentWillUnmount: function () {
 		this._scroll.destroy();
@@ -19,7 +21,9 @@ var TagsWrapper = React.createClass({
 		var tagElements = [];
 		for (var i = 0, len = tags.length; i < len; i++) {
 			var tag = tags[i]
-			var item = <li key={tag} className="tag-item">
+			var item = <li key={"t"+tag} className="tag-item" 
+				dataIScrollOptions={{scrollX: true, scrollY: false}}
+				onClick={this._onSelect.bind(this,i)} >
 				<div>{tag}</div>
 			</li>;
 			tagElements.push(item);
@@ -27,10 +31,18 @@ var TagsWrapper = React.createClass({
 
 		return <div className="tags-wrapper" ref="wrapper">
 			<ul className="tags-list">
+				{this.props.children}
 				{tagElements}
 			</ul>
 		</div>;
+	},
+	_onSelect: function (idx) {
+		if (this._scroll.moved) return ;
+
+		if (this.props.onSelect) {
+			this.props.onSelect(this.props.dataTags[idx]);
+		}
 	}
 });
 
-module.exports = TagsWrapper;
+export default TagsWrapper;

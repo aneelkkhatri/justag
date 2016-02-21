@@ -1,18 +1,30 @@
-var React = require('react');
-var LeftSideBar = require('./LeftSideBar');
-var ContentDiv = require('./ContentDiv');
+import React from 'react'
+// import Footer from './Footer'
+// import AddTodo from '../containers/AddTodo'
+// import VisibleTodoList from '../containers/VisibleTodoList'
 
-var App = React.createClass({
-    render: function () {
-        return <div className="app">
-            <header />
-            <div className="main-container">
-            	<LeftSideBar />
-            	<ContentDiv />
-            </div>
-            <footer />
-        </div>;
-    }
-});
+// const App = () => (
+//   <div>
+//     <AddTodo />
+//     <VisibleTodoList />
+//     <Footer />
+//   </div>
+// )
 
-module.exports = App;
+// export default App
+
+import LeftSideBar from './LeftSideBar'
+import ContentDiv from './ContentDiv'
+
+const App = () => {
+    return <div className="app">
+        <header />
+        <div className="main-container">
+        	<LeftSideBar />
+        	<ContentDiv />
+        </div>
+        <footer />
+    </div>
+}
+
+export default App

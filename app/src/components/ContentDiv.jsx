@@ -1,40 +1,22 @@
-var React = require('react');
+import React from 'react'
+import MainFilter from '../containers/MainFilter'
+import VisibleTagsBox from '../containers/VisibleTagsBox'
+import VisibleItemsBox from '../containers/VisibleItemsBox'
+
 var TagsWrapper = require('./TagsWrapper');
-
-var TopPart = React.createClass({
-	render: function () {
-		var tags = [];
-		for (var i = 0; i < 20; i++) {
-			tags.push("mytag"+i);
-		}
-
-		return <div className="top">
-			<div>
-				<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollX: true, scrollY: false}} />
-			</div>
-		</div>;
-	}
-});
-var TagsBox = require('./TagsBox');
-var ItemsBox = require('./ItemsBox');
 
 var MidPart = React.createClass({
 	render: function () {
-		var tags = [];
-		for (var i = 0; i < 20; i++) {
-			tags.push("tag"+i);
-		}
-
 		return <div className="mid">
 			<div>
 				<div className="left">
 					<div>
-						<TagsBox dataTags={tags} />
+						<VisibleTagsBox />
 					</div>
 				</div>
 				<div className="right">
 					<div>
-						<ItemsBox />
+						<VisibleItemsBox />
 					</div>
 				</div>
 			</div>
@@ -50,11 +32,11 @@ var BottomPart = React.createClass({
 var ContentDiv = React.createClass({
 	render: function () {
 		return <div className="content-div">
- 			<TopPart />
+ 			<MainFilter />
  			<MidPart />
  			<BottomPart />
     	</div>;
 	}
 });
 
-module.exports = ContentDiv;
+export default ContentDiv;

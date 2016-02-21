@@ -1,17 +1,32 @@
-var React = require('react');
-var TagsWrapper = require('./TagsWrapper');
+import React from 'react'
+import TagsWrapper from './TagsWrapper'
 
-var TagsBox = React.createClass({
-	render: function () {
-		return <div className="box">
-			<div className="inner">
-				<div className="heading">
-					<input type="text" placeholder="Tags" />
-				</div>
-				<TagsWrapper dataTags={this.props.dataTags||{}} dataIScrollOptions={{scrollbars: "custom"}}/>
+const TagsBox = ({ tags, onTagClick, onInput }) => {
+	let input
+
+	return <div className="box">
+		<div className="inner">
+			<div className="heading">
+				<form onSubmit={e => {
+					// e.preventDefault()
+					// if (!input.value.trim()) {
+					// 	return
+					// }
+					// dispatch(addTodo(input.value))
+					// input.value = ''
+				}}>
+					<input ref={node => {
+						input = node
+					}} onChange={e => {
+						let value = input.value;
+						onInput(value);
+					}}  type="text" placeholder="Filter"/>
+				</form>
 			</div>
-		</div>;	
-	}
-});
+			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollbars: "custom"}} 
+				onSelect={onTagClick} />
+		</div>
+	</div>
+}
 
-module.exports = TagsBox;
+export default TagsBox;
