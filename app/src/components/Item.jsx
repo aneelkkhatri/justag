@@ -15,7 +15,7 @@ const Item = React.createClass({
 				</div>
 			</div>
 			<div className="tags">
-				<TagsWrapper dataTags={data.tags} />
+				<TagsWrapper dataTags={data.tags} disableIScroll={true} />
 			</div>
 		</div>
 	}

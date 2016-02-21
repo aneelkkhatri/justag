@@ -3,7 +3,9 @@ import TagsWrapper from './TagsWrapper'
 
 var TopPart = React.createClass({
 	render: function () {
-		return <div className="top"></div>;
+		return <div className="top">
+			<div className="logo">/&nbsp;&nbsp;justag&nbsp;&nbsp;/</div>
+		</div>;
 	}
 });
 var MidPart = React.createClass({

@@ -26,6 +26,8 @@ const TagsBox = ({ tags, onTagClick, onInput }) => {
 			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollbars: "custom"}} 
 				onSelect={onTagClick} />
 		</div>
+		<div className="bottom">
+		</div>
 	</div>
 }
 

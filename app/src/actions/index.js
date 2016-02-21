@@ -61,3 +61,16 @@ export const setFilteredItems = (filteredItems) => {
 		filteredItems
 	}
 }
+
+export const enableAddNewPost = () => {
+	return {
+		type: 'ENABLE_ADD_NEW_POST'
+	}
+}
+
+export const addNewPost = (newPostData) => {
+	return {
+		type: 'ADD_NEW_POST',
+		post: newPostData
+	}
+}

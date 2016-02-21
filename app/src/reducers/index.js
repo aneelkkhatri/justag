@@ -6,6 +6,7 @@ import items from './items'
 import mainFilter from './mainFilter'
 import tagsFilter from './tagsFilter'
 import itemsFilter from './itemsFilter'
+import newPost from './newPost'
 
 const todoApp = combineReducers({
 	todos,
@@ -14,7 +15,8 @@ const todoApp = combineReducers({
 	items,
 	mainFilter,
 	tagsFilter,
-	itemsFilter
+	itemsFilter,
+	newPost
 })
 
 export default todoApp

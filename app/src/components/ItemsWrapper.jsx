@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import Item from './Item'
+import ItemPost from './ItemPost'
 
 const ItemsWrapper = React.createClass({
 	_scroll: null,
@@ -11,8 +12,12 @@ const ItemsWrapper = React.createClass({
 			}, options)
 		);
 	},
-	componentDidUpdate: function () {
+	componentDidUpdate: function (prevProps) {
 		this._scroll.refresh();
+		if (!prevProps.dataNewPost.enabled 
+			&& this.props.dataNewPost.enabled) {
+			this._scroll.scrollToElement(this.refs['new-post-list-item']);
+		}
 	},
 	componentWillUnmount: function () {
 		this._scroll.destroy();
@@ -31,6 +36,9 @@ const ItemsWrapper = React.createClass({
 		return <div className="items-wrapper" ref="wrapper">
 			<ul className="items-list">
 				{itemElements}
+				{this.props.dataNewPost.enabled?<li key={0} ref="new-post-list-item">
+					<ItemPost onSubmit={this.props.onNewPostSubmit} />
+				</li>:null}
 			</ul>
 		</div>;
 	},

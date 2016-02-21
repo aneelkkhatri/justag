@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemsBox from '../components/ItemsBox'
-import { setItemsFilter } from '../actions'
+import { setItemsFilter, enableAddNewPost, addNewPost } from '../actions'
 
 const mapStateToProps = (state) => {
 	
@@ -23,7 +23,8 @@ const mapStateToProps = (state) => {
 				}
 
 				return true;
-			})
+			}),
+		newPost: state.newPost
 	}
 }
 
@@ -34,6 +35,12 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onInput: (value) => {
 			dispatch(setItemsFilter(value.toLowerCase()));
+		},
+		onAddNewClick: () => {
+			dispatch(enableAddNewPost());
+		},
+		onNewPostSubmit: (newPostData) => {
+			dispatch(addNewPost(newPostData));
 		}
 	}
 }

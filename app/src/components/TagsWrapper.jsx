@@ -3,6 +3,8 @@ import React, { PropTypes } from 'react'
 const TagsWrapper = React.createClass({
 	_scroll: null,
 	componentDidMount: function () {
+		if (this.props.disableIScroll) return ;
+
 		var options = this.props.dataIScrollOptions || {};
 		this._scroll = new IScroll(this.refs.wrapper, 
 			Object.assign({
@@ -11,9 +13,13 @@ const TagsWrapper = React.createClass({
 		);
 	},
 	componentDidUpdate: function () {
+		if (this.props.disableIScroll) return ;
+		
 		this._scroll.refresh();
 	},
 	componentWillUnmount: function () {
+		if (this.props.disableIScroll) return ;
+		
 		this._scroll.destroy();
 	},
 	render: function () {

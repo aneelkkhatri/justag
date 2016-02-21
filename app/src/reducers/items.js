@@ -33,8 +33,22 @@ let dummy = [
 	}
 ];
 
-const items = (state = dummy, action) => {
-	return state
+let _lastId = dummy.length;
+
+const items = (state = [], action) => {
+console.log(action);
+	switch (action.type) {
+		case 'ADD_NEW_POST':
+			return [
+				...state,
+				Object.assign({
+					id: ++_lastId
+				}, action.post)
+			]
+
+		default :
+			return state;
+	}
 }
 
 export default items

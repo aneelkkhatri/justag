@@ -1,7 +1,8 @@
 import React from 'react'
 import ItemsWrapper from './ItemsWrapper'
+import ItemPost from './ItemPost'
 
-const ItemsBox = ({items, onItemClick, onInput}) => {
+const ItemsBox = ({items, newPost, onItemClick, onInput, onAddNewClick, onNewPostSubmit}) => {
 	let input
 
 	return <div className="box">
@@ -24,7 +25,11 @@ const ItemsBox = ({items, onItemClick, onInput}) => {
 				</form>
 			</div>
 			<ItemsWrapper dataItems={items} dataIScrollOptions={{scrollbars: "custom"}} 
-				onSelect={onItemClick} />
+				onSelect={onItemClick} dataNewPost={newPost} onNewPostSubmit={onNewPostSubmit}>
+			</ItemsWrapper>
+		</div>
+		<div className="bottom">
+			{newPost.enabled?null:<div className="btn add-item-btn" onClick={onAddNewClick}>Add New +</div>}
 		</div>
 	</div>
 }

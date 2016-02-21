@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
 				}
 
 				return true;
-			})
+			}).sort()
 	}
 }
 
