@@ -28,7 +28,7 @@ const ItemsWrapper = React.createClass({
 		for (var i = 0, len = items.length; i < len; i++) {
 			var item = items[i]
 			var itemElement = <li key={item.id} className="item-item" onClick={this._onSelect.bind(this,i)} >
-				<Item dataDetail={item} />
+				<Item dataDetail={item} onDoneClick={this.props.onDoneClick}/>
 			</li>;
 			itemElements.push(itemElement);
 		}

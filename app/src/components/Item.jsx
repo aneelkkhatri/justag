@@ -5,7 +5,7 @@ const Item = React.createClass({
 	render: function () {
 		var data = this.props.dataDetail;
 
-		return <div className="item">
+		return <div className={"item"+(data.done?" done":"")}>
 			<div className="content">
 				<div className="title">
 					{data.content.title}
@@ -16,6 +16,15 @@ const Item = React.createClass({
 			</div>
 			<div className="tags">
 				<TagsWrapper dataTags={data.tags} disableIScroll={true} />
+			</div>
+			<div className="btns">
+				<span className="btn done-btn octicon octicon-check" onClick={()=>{
+					if (this.props.onDoneClick) {
+						this.props.onDoneClick(data);
+					}
+				}}></span>
+				<span className="btn edit-btn octicon octicon-diff"></span>
+				<span className="btn setting-btn octicon octicon-gear"></span>
 			</div>
 		</div>
 	}

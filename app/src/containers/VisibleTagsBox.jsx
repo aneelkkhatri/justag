@@ -3,8 +3,19 @@ import { connect } from 'react-redux'
 import TagsBox from '../components/TagsBox'
 import { pushTagToMainFilter, setTagsFilter } from '../actions'
 
+const getVisibleItems = (items, filter) => {
+	switch (filter) {
+		case 'SHOW_ALL':
+			return items
+		case 'SHOW_COMPLETED':
+			return items.filter(t => t.done)
+		case 'SHOW_ACTIVE':
+			return items.filter(t => !t.done)
+	}
+}
+
 const mapStateToProps = (state) => {
-	var filteredItems = state.items
+	var filteredItems = getVisibleItems(state.items
 		.filter((item) => {
 			let content = item.content;
 			return content.text && content.text.toLowerCase().indexOf(state.itemsFilter) != -1
@@ -21,7 +32,7 @@ const mapStateToProps = (state) => {
 			}
 
 			return true;
-		})
+		}), state.visibilityFilter)
 
 	var filteredTagsArray = filteredItems.map((item) => {
 			return item.tags

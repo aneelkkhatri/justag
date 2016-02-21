@@ -20,7 +20,7 @@ const TagsBox = ({ tags, onTagClick, onInput }) => {
 					}} onChange={e => {
 						let value = input.value;
 						onInput(value);
-					}}  type="text" placeholder="Filter"/>
+					}}  type="text" placeholder="Filter Tags"/>
 				</form>
 			</div>
 			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollbars: "custom"}} 

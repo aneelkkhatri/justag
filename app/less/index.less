@@ -28,8 +28,28 @@ input[type="text"]:focus {
 textarea:focus {
 	outline: none;
 }
-.btn {
+a {
+	text-decoration: none;
+	color: #333;
+	&:hover {
+		text-decoration: none;
+		color: @theme-color-5;
+	}
+	&:active {
+		color: @theme-color-5;
+	}
+}
+
+.btn,
+.tag-item {
 	cursor: pointer;
+}
+.btn:hover {
+	color: @theme-color-5;
+}
+
+li:hover {
+	background-color: #FAFAFA;
 }
 
 .table {
@@ -201,6 +221,12 @@ ul {
 							    					>li {
 														padding: 0 24px 0 12px;
 														>.item {
+															&.done {
+																opacity: 0.3;
+																.done-btn {
+																	color: @theme-color-5;
+																}
+															}
 															position: relative;
 															padding: 12px 6px;
 															border-bottom: 1px solid #f3f3f3;
@@ -215,6 +241,7 @@ ul {
 																}
 																>input, 
 																>textarea {
+																	background: none;
 																	font-family: 'Roboto';
 															    	width: 100%;
 															    	border: none;
@@ -241,11 +268,18 @@ ul {
 																	}
 																}
 																>input.tags {
+																	background: none;
 																	color: #333;
 																    width: 100%;
 																    border: none;
 																    font-size: 13px;
 																    font-weight: 400;
+																}
+															}
+															.btns {
+																padding: 6px 0;
+																>.btn {
+																	padding: 6px;
 																}
 															}
 														    .submit-btn {
@@ -305,6 +339,7 @@ ul {
 											bottom: 36px;
 											overflow: hidden;
 											>ul {
+												padding-right: 18px;
 												>li {
 													>div {
 														padding: 6px;
@@ -322,6 +357,10 @@ ul {
 									    left: 0;
 									    right: 0;
 									    bottom: 0;
+									    >p {
+									    	padding: 0;
+									    	margin: 0;
+									    }
 									}
 								}
 							}

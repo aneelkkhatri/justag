@@ -74,3 +74,10 @@ export const addNewPost = (newPostData) => {
 		post: newPostData
 	}
 }
+
+export const markPostDoneToggle = (post) => {
+	return {
+		type: 'MARK_POST_DONE_TOGGLE',
+		post
+	}
+}

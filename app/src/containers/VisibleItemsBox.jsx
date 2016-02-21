@@ -1,12 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemsBox from '../components/ItemsBox'
-import { setItemsFilter, enableAddNewPost, addNewPost } from '../actions'
+import { setItemsFilter, enableAddNewPost, addNewPost, markPostDoneToggle } from '../actions'
+
+const getVisibleItems = (items, filter) => {
+	switch (filter) {
+		case 'SHOW_ALL':
+			return items
+		case 'SHOW_COMPLETED':
+			return items.filter(t => t.done)
+		case 'SHOW_ACTIVE':
+			return items.filter(t => !t.done)
+	}
+}
 
 const mapStateToProps = (state) => {
 	
 	return {
-		items: state.items
+		items: getVisibleItems(state.items
 			.filter((item) => {
 				let content = item.content;
 				return content.text && content.text.toLowerCase().indexOf(state.itemsFilter) != -1
@@ -23,7 +34,7 @@ const mapStateToProps = (state) => {
 				}
 
 				return true;
-			}),
+			}), state.visibilityFilter),
 		newPost: state.newPost
 	}
 }
@@ -41,6 +52,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onNewPostSubmit: (newPostData) => {
 			dispatch(addNewPost(newPostData));
+		},
+		onItemDone: (post) => {
+			dispatch(markPostDoneToggle(post));
 		}
 	}
 }

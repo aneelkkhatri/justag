@@ -43,7 +43,7 @@ const TagsWrapper = React.createClass({
 		</div>;
 	},
 	_onSelect: function (idx) {
-		if (this._scroll.moved) return ;
+		if (this._scroll && this._scroll.moved) return ;
 
 		if (this.props.onSelect) {
 			this.props.onSelect(this.props.dataTags[idx]);

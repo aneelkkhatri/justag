@@ -16,7 +16,7 @@ var MidPart = React.createClass({
 		}
 
 		return <div className="mid dark">
-			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollbars: "custom"}} />
+			
 		</div>;
 	}
 });
