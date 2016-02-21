@@ -16,13 +16,14 @@ var MidPart = React.createClass({
 		}
 
 		return <div className="mid dark">
-			
+			<div className="btn">About</div>
+			<div className="btn">Board</div>
 		</div>;
 	}
 });
 var BottomPart = React.createClass({
 	render: function () {
-		return <div className="bottom"></div>;
+		return <div className="bottom">Aneel Kumar</div>;
 	}
 });
 

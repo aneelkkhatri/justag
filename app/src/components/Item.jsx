@@ -24,7 +24,7 @@ const Item = React.createClass({
 					}
 				}}></span>
 				<span className="btn edit-btn octicon octicon-diff"></span>
-				<span className="btn setting-btn octicon octicon-gear"></span>
+				<span className="btn history-btn octicon octicon-history"></span>
 			</div>
 		</div>
 	}

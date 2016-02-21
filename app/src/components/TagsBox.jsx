@@ -21,6 +21,7 @@ const TagsBox = ({ tags, onTagClick, onInput }) => {
 						let value = input.value;
 						onInput(value);
 					}}  type="text" placeholder="Filter Tags"/>
+					<span className="octicon octicon-search"></span>
 				</form>
 			</div>
 			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollbars: "custom"}} 

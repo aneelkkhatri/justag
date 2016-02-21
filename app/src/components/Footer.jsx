@@ -14,6 +14,8 @@ const Footer = () => (
 		<FilterLink filter="SHOW_COMPLETED">
 			Completed
 		</FilterLink>
+
+		<span className="btn setting-btn octicon octicon-gear" style={{float: 'right'}}></span>
 	</p>
 )
 

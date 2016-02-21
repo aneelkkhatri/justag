@@ -22,6 +22,7 @@ const ItemsBox = ({items, newPost, onItemClick, onInput, onAddNewClick, onNewPos
 						let value = input.value;
 						onInput(value);
 					}}  type="text" placeholder="Filter Items"/>
+					<span className="octicon octicon-search"></span>
 				</form>
 			</div>
 			<ItemsWrapper dataItems={items} dataIScrollOptions={{scrollbars: "custom"}} 
