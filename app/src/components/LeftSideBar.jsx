@@ -43,7 +43,7 @@ var MidPart = React.createClass({
 				<div>
 					<b>Problem</b><br />
 					I have tried many productivity apps to keep my ideas, notes, books-to-read-later, movie-to-watch-next-month, etc. listed, but all of them have failed miserably at keeping the stuffs clean and simple. The list would go very very big and then I would lose track of what kinds of items they are. <br />
-					So, then I started to makeing categories for 'Ideas', 'Books', 'Movies', 'Stories', etc. but then there were items that would fall in multiple categories, and keeping them was not convenient; also again the lists in those categories would become very large difficult to handle.<br /><br />
+					So, then I started to making categories for 'Ideas', 'Books', 'Movies', 'Stories', etc. but then there were items that would fall in multiple categories, and keeping them was not convenient; also again the lists in those categories would become very large difficult to handle.<br /><br />
 					<b>Solution</b><br />
 					Tag items and view them like they are in categories. <br />For example, you saw a game and you liked the music in it, and also ideas in it. So create an item and tag with 'game', 'music', 'ideas', 'fun'. Keep adding items and tagging them. In the end you will have list of tags which feel like categories. <br />
 					<br /><br />
