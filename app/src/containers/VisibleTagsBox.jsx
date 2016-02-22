@@ -72,7 +72,7 @@ const mapDispatchToProps = (dispatch) => {
 		onInput: (value) => {
 			dispatch(setTagsFilter(value.toLowerCase()));
 		},
-		onPinClick: () = {
+		onPinClick: () => {
 			dispatch(pinCurrentMainFilter());
 		}
 	}
