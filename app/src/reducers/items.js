@@ -35,7 +35,8 @@ let dummy = [
 
 let _lastId = dummy.length;
 
-const items = (state = dummy, action) => {
+const items = (state = (localStorage.justag_items ? JSON.parse(localStorage.justag_items) : dummy), action) => {
+	var newState;
 	switch (action.type) {
 		case 'ADD_NEW_POST':
 			let post = action.post;
@@ -50,29 +51,40 @@ const items = (state = dummy, action) => {
 			}, action.post);
 			newPost.tags = Object.keys(tagsObj);
 
-			return [
+			newState = [
 				...state,
 				newPost
 			]
+			break ;
 
 		case 'MARK_POST_DONE_TOGGLE':
-			return [
+			newState = [
 				...state.slice(0, action.post.id),
 				Object.assign({}, action.post, {
 					done: !action.post.done
 				}),
 				...state.slice(action.post.id+1)
 			]
+			break ;
 
 		case 'EDIT_POST': 
-			return [
-					...state.slice(0, action.post.id),
-					Object.assign({}, action.post),
-					...state.slice(action.post.id+1)
-				]
+			newState = [
+				...state.slice(0, action.post.id),
+				Object.assign({}, action.post),
+				...state.slice(action.post.id+1)
+			]
+			break;
+				
 		default :
-			return state;
+			newState = state;
+			break ;
 	}
+
+	if (newState != state) {
+		window.localStorage.justag_items = JSON.stringify(newState);
+	}
+
+	return newState;
 }
 
 export default items

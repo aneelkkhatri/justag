@@ -1,7 +1,7 @@
 import React from 'react'
 import TagsWrapper from './TagsWrapper'
 
-const TagsBox = ({ tags, onTagClick, onInput }) => {
+const TagsBox = ({ tags, mainFilterTags, onTagClick, onInput }) => {
 	let input
 
 	return <div className="box">
@@ -28,7 +28,7 @@ const TagsBox = ({ tags, onTagClick, onInput }) => {
 				onSelect={onTagClick} />
 		</div>
 		<div className="bottom">
-			<span className="btn octicon octicon-pin" style={{float: 'left'}}></span>
+			{mainFilterTags.length>0? <span className="btn octicon octicon-pin" style={{float: 'left'}}></span>:null}
 
 			<span className="btn setting-btn octicon octicon-gear" style={{float: 'right'}}></span>
 		</div>

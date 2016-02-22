@@ -58,7 +58,9 @@ const mapStateToProps = (state) => {
 				}
 
 				return true;
-			}).sort()
+			}).sort(),
+
+		mainFilterTags: state.mainFilter
 	}
 }
 
@@ -69,6 +71,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onInput: (value) => {
 			dispatch(setTagsFilter(value.toLowerCase()));
+		},
+		onPinClick: () = {
+			dispatch(pinCurrentMainFilter());
 		}
 	}
 }

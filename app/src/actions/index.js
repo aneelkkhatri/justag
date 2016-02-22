@@ -88,3 +88,10 @@ export const editPost = (post) => {
 		post
 	}	
 }
+
+export const pinCurrentMainFilter = (post) => {
+	return {
+		type: 'PIN_CURRENT_MAIN_FILTER',
+		post
+	}	
+}
