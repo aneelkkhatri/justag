@@ -1,7 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemsBox from '../components/ItemsBox'
-import { setItemsFilter, enableAddNewPost, addNewPost, markPostDoneToggle, editPost } from '../actions'
+
+var actions = require('../actions');
+var setItemsFilter = actions.setItemsFilter;
+var enableAddNewPost = actions.enableAddNewPost;
+var addNewPost = actions.addNewPost;
+var markPostDoneToggle = actions.markPostDoneToggle;
+var editPost = actions.editPost;
+
+// import { setItemsFilter, enableAddNewPost, addNewPost, markPostDoneToggle, editPost } from '../actions'
 
 const getVisibleItems = (items, filter) => {
 	switch (filter) {
