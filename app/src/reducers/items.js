@@ -36,7 +36,6 @@ let dummy = [
 let _lastId = dummy.length;
 
 const items = (state = dummy, action) => {
-	console.log(action);
 	switch (action.type) {
 		case 'ADD_NEW_POST':
 			let post = action.post;
@@ -64,6 +63,13 @@ const items = (state = dummy, action) => {
 				}),
 				...state.slice(action.post.id+1)
 			]
+
+		case 'EDIT_POST': 
+			return [
+					...state.slice(0, action.post.id),
+					Object.assign({}, action.post),
+					...state.slice(action.post.id+1)
+				]
 		default :
 			return state;
 	}

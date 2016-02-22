@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ItemsBox from '../components/ItemsBox'
-import { setItemsFilter, enableAddNewPost, addNewPost, markPostDoneToggle } from '../actions'
+import { setItemsFilter, enableAddNewPost, addNewPost, markPostDoneToggle, editPost } from '../actions'
 
 const getVisibleItems = (items, filter) => {
 	switch (filter) {
@@ -55,6 +55,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onItemDone: (post) => {
 			dispatch(markPostDoneToggle(post));
+		},
+		onEditDone: (post) => {
+			dispatch(editPost(post));
 		}
 	}
 }

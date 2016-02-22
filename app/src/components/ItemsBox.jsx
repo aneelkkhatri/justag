@@ -2,7 +2,7 @@ import React from 'react'
 import ItemsWrapper from './ItemsWrapper'
 import ItemPost from './ItemPost'
 import Footer from './Footer'
-const ItemsBox = ({items, newPost, onItemClick, onInput, onAddNewClick, onNewPostSubmit, onItemDone}) => {
+const ItemsBox = ({items, newPost, onItemClick, onInput, onAddNewClick, onNewPostSubmit, onItemDone, onEditDone}) => {
 	let input
 
 	return <div className="box">
@@ -26,7 +26,7 @@ const ItemsBox = ({items, newPost, onItemClick, onInput, onAddNewClick, onNewPos
 				</form>
 			</div>
 			<ItemsWrapper dataItems={items} dataIScrollOptions={{scrollbars: "custom"}} 
-				onSelect={onItemClick} dataNewPost={newPost} onNewPostSubmit={onNewPostSubmit} onDoneClick={onItemDone}>
+				onSelect={onItemClick} dataNewPost={newPost} onNewPostSubmit={onNewPostSubmit} onDoneClick={onItemDone} onEditDone={onEditDone}>
 			</ItemsWrapper>
 		</div>
 		<div className="bottom">

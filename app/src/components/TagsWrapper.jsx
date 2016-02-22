@@ -27,7 +27,7 @@ const TagsWrapper = React.createClass({
 		var tagElements = [];
 		for (var i = 0, len = tags.length; i < len; i++) {
 			var tag = tags[i]
-			var item = <li key={"t"+tag} className="tag-item" 
+			var item = <li key={"t"+tag} className="btn tag-item" 
 				dataIScrollOptions={{scrollX: true, scrollY: false}}
 				onClick={this._onSelect.bind(this,i)} >
 				<div>{tag}</div>

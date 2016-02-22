@@ -81,3 +81,10 @@ export const markPostDoneToggle = (post) => {
 		post
 	}
 }
+
+export const editPost = (post) => {
+	return {
+		type: 'EDIT_POST',
+		post
+	}	
+}

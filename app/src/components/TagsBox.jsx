@@ -28,6 +28,9 @@ const TagsBox = ({ tags, onTagClick, onInput }) => {
 				onSelect={onTagClick} />
 		</div>
 		<div className="bottom">
+			<span className="btn octicon octicon-pin" style={{float: 'left'}}></span>
+
+			<span className="btn setting-btn octicon octicon-gear" style={{float: 'right'}}></span>
 		</div>
 	</div>
 }

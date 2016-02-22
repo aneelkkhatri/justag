@@ -8,7 +8,8 @@ let MainFilter = ({tags, onTagClick, onHomeClick}) => {
 		<div>
 			<TagsWrapper dataTags={tags} dataIScrollOptions={{scrollX: true, scrollY: false}} 
 				onSelect={onTagClick}>
-				<li key={0} onClick={onHomeClick}><span className="octicon octicon-home"></span></li>
+				<li className="btn home-btn" key={0} onClick={onHomeClick}><span className="octicon octicon-chevron-left"></span>
+</li>
 			</TagsWrapper>
 		</div>
 	</div>
