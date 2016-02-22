@@ -28,7 +28,7 @@ const TagsBox = ({ tags, mainFilterTags, onTagClick, onInput }) => {
 				onSelect={onTagClick} />
 		</div>
 		<div className="bottom">
-			{mainFilterTags.length>0? <span className="btn octicon octicon-pin" style={{float: 'left'}}></span>:null}
+			{mainFilterTags && mainFilterTags.length>0? <span className="btn octicon octicon-pin" style={{float: 'left'}}></span>:null}
 
 			<span className="btn setting-btn octicon octicon-gear" style={{float: 'right'}}></span>
 		</div>
