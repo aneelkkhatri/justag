@@ -49,7 +49,7 @@ const items = (state = (localStorage.justag_items ? JSON.parse(localStorage.just
 			_lastId = parseInt(localStorage.lastId);
 			
 			let newPost = Object.assign({
-				id: _lastId++
+				id: ++_lastId
 			}, action.post);
 			newPost.tags = Object.keys(tagsObj);
 			
