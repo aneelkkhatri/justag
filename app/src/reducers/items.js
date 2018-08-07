@@ -34,7 +34,7 @@ let dummy = [
 ];
 
 let _lastId = dummy.length;
-
+localStorage.lastId = _lastId;
 const items = (state = (localStorage.justag_items ? JSON.parse(localStorage.justag_items) : dummy), action) => {
 	var newState;
 	switch (action.type) {
@@ -46,10 +46,14 @@ const items = (state = (localStorage.justag_items ? JSON.parse(localStorage.just
 				tagsObj[tags[i]]=true;
 			};
 
+			_lastId = parseInt(localStorage.lastId);
+			
 			let newPost = Object.assign({
 				id: _lastId++
 			}, action.post);
 			newPost.tags = Object.keys(tagsObj);
+			
+			localStorage.lastId = _lastId;
 
 			newState = [
 				...state,
